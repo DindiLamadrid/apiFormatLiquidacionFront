@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'apiFormatLiquidacionFront'`, () => {
+  it(`should have as title 'basicCalculator'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('apiFormatLiquidacionFront');
+    expect(app.title).toEqual('basicCalculator');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('apiFormatLiquidacionFront app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('basicCalculator app is running!');
   });
 });
