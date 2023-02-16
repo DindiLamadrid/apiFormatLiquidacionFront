@@ -1,4 +1,4 @@
-<h2> Employee List</h2>
+<h5> Employees List</h5>
 <table class = "table table-striped">
     <thead>
         <tr>
@@ -8,6 +8,7 @@
             <th>Job</th>
             <th>Start Date</th>
             <th>Salary</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <!-- El bucle recorre cada usuario de users-->
@@ -16,14 +17,16 @@
     <tbody>
         <tr *ngFor = "let emp of employees">
             <!-- {{}} Es interpolación para acceder a los campos -->
-            <td>{{emp.idEmployee}}</td>
+            <td>{{emp.id}}</td>
             <td>{{emp.document}}</td>
             <td>{{emp.name}}</td>
             <td>{{emp.job}}</td>
             <td>{{emp.startDate}}</td>
             <td>{{emp.salary}}</td>
-            <button (click) = "updateEmployee(emp.idEmployee)" class = "btn btn-info"> Update</button>
-            <button (click) = "deleteEmployee(emp.idEmployee)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            <button (click) = "updateEmployee(emp.id)" class = "btn btn-info"> Edit</button>
+            <button (click) = "deleteEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            <button (click) = "deleteEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> End Contract</button>
+
         </tr>
     </tbody>
 </table>

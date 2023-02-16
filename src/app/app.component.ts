@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +6,5 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularFrontend';
+  title = 'frontLiquidacion';
 }
-
-
-
-
