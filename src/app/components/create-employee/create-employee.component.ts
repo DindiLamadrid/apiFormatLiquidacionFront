@@ -17,6 +17,7 @@ export class CreateEmployeeComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.employee);
   }
 
   onSubmitForm(){

@@ -7,4 +7,7 @@ export class Employee {
   job: string;
   salary: Salary;
   startDate: Date;
+
+  Employee(id:number, salary:Salary) {
+  }
 }

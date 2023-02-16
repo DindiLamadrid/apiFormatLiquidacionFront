@@ -22,7 +22,7 @@
             <td>{{emp.name}}</td>
             <td>{{emp.job}}</td>
             <td>{{emp.startDate}}</td>
-            <td>{{emp.salary}}</td>
+            <td>{{emp.salary.value}}</td>
             <button (click) = "updateEmployee(emp.id)" class = "btn btn-info"> Edit</button>
             <button (click) = "deleteEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
             <button (click) = "deleteEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> End Contract</button>
