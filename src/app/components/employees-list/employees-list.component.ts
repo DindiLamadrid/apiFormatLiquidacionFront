@@ -48,4 +48,9 @@ export class EmployeesListComponent implements OnInit {
   }
 
 
+  liquidacionEmployee(id: number){
+    //Lo envía a través de app-routing.module.ts
+    this.router.navigate(['liquidacionemployee', id]);
+  }
+
 }

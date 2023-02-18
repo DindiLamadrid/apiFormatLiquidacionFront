@@ -13,6 +13,7 @@ export class EmployeeService {
   private editEmpUrl = "http://localhost:8087/employee/updateEmployee";
   private getEmployee = "http://localhost:8087/employee/getEmployeeById";
   private deleteEmp = "http://localhost:8087/employee/deleteEmployee";
+  private createLiqbackendURL = "http://localhost:8087/liquidacion/createLiquidacion";
 
 
   constructor(private httpClient: HttpClient) {
@@ -40,6 +41,11 @@ export class EmployeeService {
   //DELETE
   deleteEmployee(id: number): Observable<Object>{
     return this.httpClient.delete(`${this.deleteEmp}/${id}`);
+  }
+
+
+  createLiquidacion(employee: Employee): Observable<Object>{
+    return this.httpClient.post(`${this.createLiqbackendURL}`, employee);
   }
 
   errorHandler(error: HttpErrorResponse) {

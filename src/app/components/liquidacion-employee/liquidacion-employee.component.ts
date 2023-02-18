@@ -1,33 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/model/employee/employee';
 import { Error } from 'src/app/model/error_handler/error';
 import { Httperrorresponse } from 'src/app/model/error_handler/httperrorresponse';
+import { Liquidacion } from 'src/app/model/liquidacion/liquidacion';
 import { Salary } from 'src/app/model/salary/salary';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
+import { LiquidacionService } from 'src/app/services/liquidacion/liquidacion.service';
 
 @Component({
-  selector: 'app-update-employee',
-  templateUrl: './update-employee.component.html',
-  styleUrls: ['./update-employee.component.css']
+  selector: 'app-liquidacion-employee',
+  templateUrl: './liquidacion-employee.component.html',
+  styleUrls: ['./liquidacion-employee.component.css']
 })
-export class UpdateEmployeeComponent implements OnInit {
-
+export class LiquidacionEmployeeComponent {
   employee: Employee = new Employee();
-  salary: Salary = new Salary(0,'');
-  id: number;
+  listamotivos:string[]=["Retiro Injustificado","Retiro Justificado","Retiro Voluntario"];
   errorMessage: Httperrorresponse= new Httperrorresponse();
-
+  id: number;
+  seleccionado = null
 
   constructor(
     private employeeService: EmployeeService,
+    private liquidacionService: LiquidacionService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.salary = new Salary(0,'');
-    this.employee.salary = this.salary;
 
     const err = new Error('','');
     this.errorMessage = new Httperrorresponse();
@@ -47,11 +47,12 @@ export class UpdateEmployeeComponent implements OnInit {
        error => console.log(error));
   }
 
-  //Metodo referenciado por el forumulario HTML
-  onSubmitForm(){
-    this.salary.value = this.employee.salary.value
-    this.employee.salary = this.salary
-    this.employeeService.updateEmployee(this.id, this.employee).subscribe(
+   //Metodo referenciado por el forumulario HTML
+   onSubmitForm(){
+    let liquidacion = new Liquidacion(this.employee.id, new Date, '');
+    console.log(this.seleccionado)
+    this.liquidacionService.createLiquidacion(liquidacion).subscribe(
+
       empData =>{
         console.log(empData);
         this.redirectEmployeeList();
@@ -63,7 +64,4 @@ export class UpdateEmployeeComponent implements OnInit {
   redirectEmployeeList(){
     this.router.navigate(['/employeelist']);
   }
-
-
-
 }

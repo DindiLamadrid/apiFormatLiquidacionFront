@@ -8,6 +8,8 @@ import { EmployeesListComponent } from './components/employees-list/employees-li
 import { AppRoutingModule } from './app-routing.module';
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
+import { SalaryListComponent } from './components/salary-list/salary-list.component';
+import { LiquidacionEmployeeComponent } from './components/liquidacion-employee/liquidacion-employee.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { UpdateEmployeeComponent } from './components/update-employee/update-emp
     EmployeesListComponent,
     CreateEmployeeComponent,
     UpdateEmployeeComponent,
+    SalaryListComponent,
+    LiquidacionEmployeeComponent,
   ],
   imports: [
         BrowserModule,

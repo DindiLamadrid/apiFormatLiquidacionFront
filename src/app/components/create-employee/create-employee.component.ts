@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Error } from 'src/app/error';
-import { Httperrorresponse } from 'src/app/httperrorresponse';
 import { Employee } from 'src/app/model/employee/employee';
+import { Error } from 'src/app/model/error_handler/error';
+import { Httperrorresponse } from 'src/app/model/error_handler/httperrorresponse';
 import { Salary } from 'src/app/model/salary/salary';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 
