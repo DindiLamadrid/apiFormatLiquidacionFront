@@ -1,4 +1,4 @@
-import { Salary } from "./salary";
+import { Salary } from "../salary/salary";
 
 export class Employee {
   id: number;
@@ -8,6 +8,5 @@ export class Employee {
   salary: Salary;
   startDate: Date;
 
-  Employee(id:number, salary:Salary) {
-  }
+
 }

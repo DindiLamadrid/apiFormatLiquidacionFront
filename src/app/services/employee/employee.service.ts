@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { Employee } from './employee';
+import { Employee } from 'src/app/model/employee/employee';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ export class EmployeeService {
   private getAllUrl: string = "http://localhost:8087/employee/getAllEmployees";
   private createbackendURL: string = "http://localhost:8087/employee/createEmployee";
   private editEmpUrl = "http://localhost:8087/employee/updateEmployee";
-  private backendUrl = "http://localhost:8087/employee";
+  private getEmployee = "http://localhost:8087/employee/getEmployeeById";
+  private deleteEmp = "http://localhost:8087/employee/deleteEmployee";
+
 
   constructor(private httpClient: HttpClient) {
    }
@@ -21,12 +24,12 @@ export class EmployeeService {
   }
 
   getEmployeeById(id: number): Observable<Employee>{
-    return this.httpClient.get<Employee>(`${this.backendUrl}/${id}`);
+    return this.httpClient.get<Employee>(`${this.getEmployee}/${id}`);
   }
 
 
   createEmployee(employee: Employee): Observable<Object>{
-    return this.httpClient.post(`${this.createbackendURL}`, employee).pipe(catchError(this.errorHandler));
+    return this.httpClient.post(`${this.createbackendURL}`, employee);
   }
 
   //PUT
@@ -36,7 +39,7 @@ export class EmployeeService {
 
   //DELETE
   deleteEmployee(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.backendUrl}/${id}`);
+    return this.httpClient.delete(`${this.deleteEmp}/${id}`);
   }
 
   errorHandler(error: HttpErrorResponse) {
