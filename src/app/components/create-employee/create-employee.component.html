@@ -34,8 +34,8 @@
             [(ngModel)] = "employee.startDate" name = "startDate">
     </div>
 
-    <div>
-      <input type="text" id="custId" disabled  name="custId" value=" {{errorMessage.error.message}}" style="padding-bottom:8px; color: red;border: 0;outline: 0; background-color: white;">
+    <div class="form-group">
+      <input type="text" id="custId" disabled class ="form-control" name="custId" value=" {{errorMessage.error.message}}" style="color: red;border: 0;outline: 0; background-color: white;">
     </div>
 
     <button class = "btn btn-success" type ="submit">Send</button>

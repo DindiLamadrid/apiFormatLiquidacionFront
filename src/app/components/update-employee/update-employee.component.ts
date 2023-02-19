@@ -51,6 +51,7 @@ export class UpdateEmployeeComponent implements OnInit {
   onSubmitForm(){
     this.salary.value = this.employee.salary.value
     this.employee.salary = this.salary
+    console.log('ptm', this.employee)
     this.employeeService.updateEmployee(this.id, this.employee).subscribe(
       empData =>{
         console.log(empData);

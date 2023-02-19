@@ -10,6 +10,7 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
 import { SalaryListComponent } from './components/salary-list/salary-list.component';
 import { LiquidacionEmployeeComponent } from './components/liquidacion-employee/liquidacion-employee.component';
+import { CreateSalaryComponent } from './components/create-salary/create-salary.component';
 
 
 @NgModule({
@@ -20,10 +21,14 @@ import { LiquidacionEmployeeComponent } from './components/liquidacion-employee/
     UpdateEmployeeComponent,
     SalaryListComponent,
     LiquidacionEmployeeComponent,
+    CreateSalaryComponent,
+
   ],
   imports: [
-        BrowserModule,
+    BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
     HttpClientModule,
     FormsModule
   ],
