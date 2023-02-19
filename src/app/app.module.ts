@@ -8,10 +8,10 @@ import { EmployeesListComponent } from './components/employees-list/employees-li
 import { AppRoutingModule } from './app-routing.module';
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
-import { SalaryListComponent } from './components/salary-list/salary-list.component';
 import { LiquidacionEmployeeComponent } from './components/liquidacion-employee/liquidacion-employee.component';
 import { CreateSalaryComponent } from './components/create-salary/create-salary.component';
 import { VerMasComponent } from './components/ver-mas/ver-mas.component';
+import { VerhistorialsalariosComponent } from './components/verhistorialsalarios/verhistorialsalarios.component';
 
 
 @NgModule({
@@ -20,10 +20,10 @@ import { VerMasComponent } from './components/ver-mas/ver-mas.component';
     EmployeesListComponent,
     CreateEmployeeComponent,
     UpdateEmployeeComponent,
-    SalaryListComponent,
     LiquidacionEmployeeComponent,
     CreateSalaryComponent,
     VerMasComponent,
+    VerhistorialsalariosComponent,
 
   ],
   imports: [

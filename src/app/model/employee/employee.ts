@@ -8,6 +8,4 @@ export class Employee {
   salary: Salary;
   startDate: Date;
   status: string;
-
-
 }

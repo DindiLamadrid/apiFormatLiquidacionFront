@@ -63,4 +63,10 @@ export class VerMasComponent {
       //Lo envía a través de app-routing.module.ts
       this.router.navigate(['createsalary', id]);
     }
+
+
+    verhistorialsalarios(id: number){
+      //Lo envía a través de app-routing.module.ts
+      this.router.navigate(['verhistorialsalarios', id]);
+    }
 }

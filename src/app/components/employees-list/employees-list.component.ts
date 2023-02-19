@@ -16,7 +16,6 @@ export class EmployeesListComponent implements OnInit {
 
 
   constructor(
-
     private employeeService : EmployeeService,
     private router: Router
   ) { }
