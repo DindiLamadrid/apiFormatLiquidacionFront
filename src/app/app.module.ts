@@ -11,6 +11,7 @@ import { UpdateEmployeeComponent } from './components/update-employee/update-emp
 import { SalaryListComponent } from './components/salary-list/salary-list.component';
 import { LiquidacionEmployeeComponent } from './components/liquidacion-employee/liquidacion-employee.component';
 import { CreateSalaryComponent } from './components/create-salary/create-salary.component';
+import { VerMasComponent } from './components/ver-mas/ver-mas.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { CreateSalaryComponent } from './components/create-salary/create-salary.
     SalaryListComponent,
     LiquidacionEmployeeComponent,
     CreateSalaryComponent,
+    VerMasComponent,
 
   ],
   imports: [

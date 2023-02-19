@@ -53,4 +53,9 @@ export class EmployeesListComponent implements OnInit {
     this.router.navigate(['liquidacionemployee', id]);
   }
 
+  vermas(id: number){
+    //Lo envía a través de app-routing.module.ts
+    this.router.navigate(['vermas', id]);
+  }
+
 }

@@ -1,21 +1,25 @@
 <div class="col-sm-6 offset-sm-3">
-  <h3> Create new Salary </h3>
+  <h3> Create new Salary for {{employee.name}}</h3>
 
   <!--Usamos Binging de angular para llamar al método del .ts asociado-->
   <!--La sintaxis [()] BananaInBox es un Two-Way Binding-->
   <form (ngSubmit) = "onSubmitForm()">
 
       <div class="form-group">
-          <label> Select Employee</label>
-          <input type="text" class ="form-control" id = "employee"
-              [(ngModel)] = "salary.id" name = "employee">
+          <label> Document</label>
+          <input disabled type="text" class ="form-control" id = "employee"
+              [(ngModel)] = "employee.document" name = "employee">
       </div>
       <div class="form-group">
-          <label> Amount</label>
-          <input type="text" class ="form-control" id = "amount"
-              [(ngModel)] = "salary.value" name = "amount">
+          <label> Old Salary</label>
+          <input disabled type="text" class ="form-control" id = "oldsalary"
+              value="{{oldSalary}}" name = "oldsalary">
       </div>
-
+      <div class="form-group">
+        <label> New Salary</label>
+        <input type="text" class ="form-control" id = "amount"
+            [(ngModel)] = "employee.salary.value" name = "amount">
+    </div>
 
     <div class="form-group">
       <input type="text" id="custId" disabled class ="form-control" name="custId" value=" {{errorMessage.error.message}}" style="color: red;border: 0;outline: 0; background-color: white;">

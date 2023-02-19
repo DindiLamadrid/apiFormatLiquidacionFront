@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/model/employee/employee';
 import { Error } from 'src/app/model/error_handler/error';
 import { Httperrorresponse } from 'src/app/model/error_handler/httperrorresponse';
 import { Salary } from 'src/app/model/salary/salary';
 import { SalaryService } from 'src/app/services/salary/salary.service';
 import { HttpClient } from '@angular/common/http';
+import { EmployeeService } from 'src/app/services/employee/employee.service';
 
 
 @Component({
@@ -15,45 +16,56 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CreateSalaryComponent {
 
-  salary: Salary = new Salary(0, '');
+  employee: Employee = new Employee();
+  salary : Salary = new Salary(0, '');
   errorMessage: Httperrorresponse= new Httperrorresponse();
-
-  searchTerm = '';
-  countries: Employee[] = [];
-  allCountries: Employee[] = [];
+  id: number;
+  oldSalary: string;
 
 
-  constructor(private salaryService : SalaryService,
-    private router: Router, private http: HttpClient) { }
+
+  constructor(private employeeService : EmployeeService,
+    private router: Router, private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit(): void {
+    this.salary = new Salary(0,'');
+    this.employee.salary = this.salary;
+
+
     const err = new Error('','');
     this.errorMessage = new Httperrorresponse();
     this.errorMessage.error = err;
-    console.log(this.salary);
+    console.log(this.employee);
 
-    this.http.get<Employee[]>('./assets/data/countries.json')
-      .subscribe((data: Employee[]) => {
-        this.countries = data;
-      });
+    //Recogemos el ID que nos llega en la url desde el formulario
+    this.id = this.activatedRoute.snapshot.params['id'];
+    //Utilizamos el método de UserService para obtener usuario
+    this.employeeService.getEmployeeById(this.id).subscribe(
+      emp => {
+        this.employee = emp;
+        this.oldSalary = this.employee.salary.value;
+        console.log(emp)
+      },
+      error => console.log(error));
+
   }
 
   onSubmitForm(){
-    console.log(this.salary);
+    console.log(this.employee);
     this.commitSalary();
   }
 
   commitSalary(){
-    this.salaryService.createSalary(this.salary).subscribe(
-      salaryData =>{
-        console.log(salaryData);
-        this.redirectEmployeeList();
+    this.employeeService.updateEmployee(this.id, this.employee).subscribe(
+      employee =>{
+        console.log(employee);
+        this.redirectEmployeeList(this.id);
       },
       error => this.errorMessage = (error));
   }
 
-  redirectEmployeeList(){
-    this.router.navigate(['/employeelist']);
+  redirectEmployeeList(id: number){
+    this.router.navigate(['/vermas', id]);
   }
 }

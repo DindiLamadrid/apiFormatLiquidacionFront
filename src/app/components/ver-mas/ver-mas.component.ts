@@ -3,31 +3,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/model/employee/employee';
 import { Error } from 'src/app/model/error_handler/error';
 import { Httperrorresponse } from 'src/app/model/error_handler/httperrorresponse';
-import { Liquidacion } from 'src/app/model/liquidacion/liquidacion';
 import { Salary } from 'src/app/model/salary/salary';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
-import { LiquidacionService } from 'src/app/services/liquidacion/liquidacion.service';
 
 @Component({
-  selector: 'app-liquidacion-employee',
-  templateUrl: './liquidacion-employee.component.html',
-  styleUrls: ['./liquidacion-employee.component.css']
+  selector: 'app-ver-mas',
+  templateUrl: './ver-mas.component.html',
+  styleUrls: ['./ver-mas.component.css']
 })
-export class LiquidacionEmployeeComponent {
+export class VerMasComponent {
   employee: Employee = new Employee();
-  listamotivos:string[]=["Retiro Injustificado","Retiro Justificado","Retiro Voluntario"];
-  errorMessage: Httperrorresponse= new Httperrorresponse();
+  salary: Salary = new Salary(0,'');
   id: number;
-  seleccionado = null
+  errorMessage: Httperrorresponse= new Httperrorresponse();
+
 
   constructor(
     private employeeService: EmployeeService,
-    private liquidacionService: LiquidacionService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.salary = new Salary(0,'');
+    this.employee.salary = this.salary;
 
     const err = new Error('','');
     this.errorMessage = new Httperrorresponse();
@@ -47,20 +46,21 @@ export class LiquidacionEmployeeComponent {
        error => console.log(error));
   }
 
-   //Metodo referenciado por el forumulario HTML
-   onSubmitForm(){
-    let liquidacion = new Liquidacion(this.employee.id, new Date, ''+ this.seleccionado);
-    this.liquidacionService.createLiquidacion(liquidacion).subscribe(
+    //Metodo referenciado por el forumulario HTML
+    onSubmitForm(){
+      this.salary.value = this.employee.salary.value
+      this.employee.salary = this.salary
+      console.log('ptm', this.employee)
+      this.employeeService.updateEmployee(this.id, this.employee).subscribe(
+        empData =>{
+          console.log(empData);
+          //this.redirectEmployeeList();
+        },
+        error => this.errorMessage = (error));
+    }
 
-      empData =>{
-        console.log(empData);
-        this.redirectEmployeeList();
-      },
-      error => this.errorMessage = (error));
-  }
-
-  //Redirección a lista de usuarios
-  redirectEmployeeList(){
-    this.router.navigate(['/employeelist']);
-  }
+    editarsalario(id: number){
+      //Lo envía a través de app-routing.module.ts
+      this.router.navigate(['createsalary', id]);
+    }
 }

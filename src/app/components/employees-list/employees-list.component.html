@@ -8,6 +8,7 @@
             <th>Job</th>
             <th>Start Date</th>
             <th>Salary</th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -23,10 +24,11 @@
             <td>{{emp.job}}</td>
             <td>{{emp.startDate}}</td>
             <td>{{emp.salary.value}}</td>
-            <button (click) = "updateEmployee(emp.id)" class = "btn btn-info"> Edit</button>
-            <button (click) = "deleteEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-            <button (click) = "liquidacionEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> Liquidar</button>
-
+            <td>{{emp.status}}</td>
+            <button  [disabled]="emp.status !== 'Activo'" (click) = "updateEmployee(emp.id)" class = "btn btn-info" style="margin-left: 10px"> Edit</button>
+            <button  [disabled]="emp.status !== 'Activo'" (click) = "deleteEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            <button  [disabled]="emp.status !== 'Activo'" (click) = "liquidacionEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> Liquidar</button>
+            <button  (click) = "vermas(emp.id)" class = "btn btn-info" style="margin-left: 10px"> Ver más</button>
         </tr>
     </tbody>
 </table>

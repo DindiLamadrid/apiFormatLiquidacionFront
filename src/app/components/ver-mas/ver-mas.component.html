@@ -1,0 +1,42 @@
+<div class="col-sm-6 offset-sm-3">
+  <h3> Ver info</h3>
+
+  <!--Usamos Binging de angular para llamar al método del .ts asociado-->
+  <!--La sintaxis [()] BananaInBox es un Two-Way Binding-->
+    <div class="row">
+      <div class="form-group col">
+          <label> Document</label>
+          <input  disabled type="text" class ="form-control" id = "document"
+              [(ngModel)] = "employee.document" name = "document">
+      </div>
+
+      <div class="form-group col">
+          <label> Name</label>
+          <input disabled type="text" class ="form-control" id = "name"
+              [(ngModel)] = "employee.name" name = "name">
+      </div>
+
+  </div>
+
+
+  <div class="form-group col">
+    <button (click) = "editarsalario(employee.id)" class = "form-control btn btn-success" type ="submit">Crear nuevo salario</button>
+  </div>
+  <div class="form-group col">
+    <button  (click) = "editarsalario(employee.id)" class = "form-control btn btn-success" type ="submit">Ver historial de salarios</button>
+  </div>
+  <div class="form-group col">
+    <button   (click) = "editarsalario(employee.id)" class = "form-control btn btn-success" type ="submit">Ver liquidacion</button>
+  </div>
+
+
+
+
+
+  <div class="form-group col">
+    <input type="text" id="custId" disabled class ="form-control" name="custId" value=" {{errorMessage.error.message}}" style="color: red;border: 0;outline: 0; background-color: white;">
+  </div>
+
+
+
+</div>
