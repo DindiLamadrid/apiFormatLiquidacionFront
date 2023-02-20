@@ -25,9 +25,7 @@ export class VerhistorialsalariosComponent {
   ngOnInit(): void {
 
 
-     //Recogemos el ID que nos llega en la url desde el formulario
      this.id = this.activatedRoute.snapshot.params['id'];
-     //Utilizamos el método de UserService para obtener usuario
      this.employeeService.getEmployeeById(this.id).subscribe(
        emp => {
          this.employee = emp;
@@ -42,10 +40,8 @@ export class VerhistorialsalariosComponent {
   }
 
   private getHistorySalaryByEmp(){
-    //Utilizamos el servicio inyectado para encontrar los usuarios
     console.log('help', this.id)
     this.historySalaryService.getHistorySalaryByEmployee(this.id).subscribe(
-      //Arrow function, funcion anónima similar a expersiones Lambda
       employeeData => {this.historySalary = employeeData; console.log(employeeData)}
     );
   }

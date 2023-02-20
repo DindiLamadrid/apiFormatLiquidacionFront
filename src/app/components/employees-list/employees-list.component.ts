@@ -25,15 +25,12 @@ export class EmployeesListComponent implements OnInit {
   }
 
   private getEmployees(){
-    //Utilizamos el servicio inyectado para encontrar los usuarios
     this.employeeService.findAllEmployees().subscribe(
-      //Arrow function, funcion anónima similar a expersiones Lambda
       employeeData => {this.employees = employeeData}
     );
   }
 
   updateEmployee(id: number){
-    //Lo envía a través de app-routing.module.ts
     this.router.navigate(['updateemployee', id]);
   }
 
@@ -41,7 +38,6 @@ export class EmployeesListComponent implements OnInit {
     this.employeeService.deleteEmployee(id).subscribe(
       employeeData => {
       console.log(employeeData);
-      //Volvemos a recuperar los Users tras el borrado
       this.getEmployees();
     })
   }

@@ -4,7 +4,6 @@ import { Employee } from 'src/app/model/employee/employee';
 import { Error } from 'src/app/model/error_handler/error';
 import { Httperrorresponse } from 'src/app/model/error_handler/httperrorresponse';
 import { Salary } from 'src/app/model/salary/salary';
-import { SalaryService } from 'src/app/services/salary/salary.service';
 import { HttpClient } from '@angular/common/http';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 
@@ -33,7 +32,7 @@ export class CreateSalaryComponent {
     this.employee.salary = this.salary;
 
 
-    const err = new Error('','');
+    const err = new Error({ status: '', message: '' });
     this.errorMessage = new Httperrorresponse();
     this.errorMessage.error = err;
     console.log(this.employee);

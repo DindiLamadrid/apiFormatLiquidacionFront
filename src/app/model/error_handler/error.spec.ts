@@ -2,6 +2,6 @@ import { Error } from './error';
 
 describe('Error', () => {
   it('should create an instance', () => {
-    expect(new Error('', '')).toBeTruthy();
+    expect(new Error({ status: '', message: '' })).toBeTruthy();
   });
 });

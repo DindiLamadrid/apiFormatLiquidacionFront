@@ -29,15 +29,13 @@ export class UpdateEmployeeComponent implements OnInit {
     this.salary = new Salary(0,'');
     this.employee.salary = this.salary;
 
-    const err = new Error('','');
+    const err = new Error({ status: '', message: '' });
     this.errorMessage = new Httperrorresponse();
     this.errorMessage.error = err;
     console.log(this.employee);
 
 
-     //Recogemos el ID que nos llega en la url desde el formulario
      this.id = this.activatedRoute.snapshot.params['id'];
-     //Utilizamos el método de UserService para obtener usuario
      this.employeeService.getEmployeeById(this.id).subscribe(
        emp => {
          this.employee = emp;
@@ -47,7 +45,6 @@ export class UpdateEmployeeComponent implements OnInit {
        error => console.log(error));
   }
 
-  //Metodo referenciado por el forumulario HTML
   onSubmitForm(){
     this.salary.value = this.employee.salary.value
     this.employee.salary = this.salary
@@ -60,11 +57,9 @@ export class UpdateEmployeeComponent implements OnInit {
       error => this.errorMessage = (error));
   }
 
-  //Redirección a lista de usuarios
+
   redirectEmployeeList(){
     this.router.navigate(['/employeelist']);
   }
-
-
 
 }

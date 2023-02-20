@@ -12,12 +12,10 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <!-- El bucle recorre cada usuario de users-->
-    <!-- Este archivo html está asociado a su respectivo .ts -->
-    <!-- users es una propiedad definida en el .ts users: User[]-->
+
     <tbody>
         <tr *ngFor = "let emp of employees">
-            <!-- {{}} Es interpolación para acceder a los campos -->
+
             <td>{{emp.id}}</td>
             <td>{{emp.document}}</td>
             <td>{{emp.name}}</td>

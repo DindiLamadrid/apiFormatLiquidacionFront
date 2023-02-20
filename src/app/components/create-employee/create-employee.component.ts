@@ -23,7 +23,7 @@ export class CreateEmployeeComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    const err = new Error('','');
+    const err = new Error({ status: '', message: '' });
     this.errorMessage = new Httperrorresponse();
     this.errorMessage.error = err;
     this.employee.salary = this.salary
@@ -42,7 +42,7 @@ export class CreateEmployeeComponent implements OnInit {
     this.employeeService.createEmployee(this.employee).subscribe(
       userData =>{
         console.log(userData);
-        //Llamamos al método de redirección para volver a la lista de usuarios
+        
         this.redirectUserList();
       },
       error => this.errorMessage = (error));
