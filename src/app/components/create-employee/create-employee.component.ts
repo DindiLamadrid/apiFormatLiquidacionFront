@@ -14,7 +14,7 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 export class CreateEmployeeComponent implements OnInit {
 
   employee: Employee = new Employee();
-  salary: Salary = new Salary(0, '');
+  salary: Salary = new Salary(0, '','');
   errorMessage: Httperrorresponse= new Httperrorresponse();
 
 
@@ -36,13 +36,13 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   commitEmployee(){
-    console.log('amp', this.employee.salary.value)
+    console.log('amp', this.employee.salary.salary)
 
 
     this.employeeService.createEmployee(this.employee).subscribe(
       userData =>{
         console.log(userData);
-        
+
         this.redirectUserList();
       },
       error => this.errorMessage = (error));

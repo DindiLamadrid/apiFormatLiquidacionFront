@@ -8,6 +8,8 @@ import { Liquidacion } from 'src/app/model/liquidacion/liquidacion';
 })
 export class LiquidacionService {
   private createLiqbackendURL = "http://localhost:8087/liquidacion/createLiquidacion";
+  private getLiquidacionByEmp = "http://localhost:8087/liquidacion/getLiquidacionByEmployee";
+
 
 
   constructor(private httpClient: HttpClient) {
@@ -16,5 +18,9 @@ export class LiquidacionService {
 
   createLiquidacion(liquidacion: Liquidacion): Observable<Object>{
     return this.httpClient.post(`${this.createLiqbackendURL}`, liquidacion);
+  }
+
+  getHistoryLiquidacionByEmployee(id: number): Observable<Liquidacion[]>{
+    return this.httpClient.get<Liquidacion[]>(`${this.getLiquidacionByEmp}/${id}`);
   }
 }

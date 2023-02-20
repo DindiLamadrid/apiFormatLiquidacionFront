@@ -15,7 +15,8 @@ export class VerhistorialsalariosComponent {
   historySalary : Historysalary[]
   id : number;
   employee: Employee = new Employee();
-  salary : Salary = new Salary(0, '');
+  salary : Salary = new Salary(0, '', '');
+ngModel: any;
 
 
   constructor(
@@ -44,5 +45,10 @@ export class VerhistorialsalariosComponent {
     this.historySalaryService.getHistorySalaryByEmployee(this.id).subscribe(
       employeeData => {this.historySalary = employeeData; console.log(employeeData)}
     );
+  }
+
+  vermas(id: number){
+    //Lo envía a través de app-routing.module.ts
+    this.router.navigate(['vermas', id]);
   }
 }

@@ -13,7 +13,7 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 })
 export class VerMasComponent {
   employee: Employee = new Employee();
-  salary: Salary = new Salary(0,'');
+  salary: Salary = new Salary(0,'','');
   id: number;
   errorMessage: Httperrorresponse= new Httperrorresponse();
 
@@ -25,7 +25,7 @@ export class VerMasComponent {
   ) { }
 
   ngOnInit(): void {
-    this.salary = new Salary(0,'');
+    this.salary = new Salary(0,'','');
     this.employee.salary = this.salary;
 
     const err = new Error({ status: '', message: '' });
@@ -45,7 +45,7 @@ export class VerMasComponent {
   }
 
     onSubmitForm(){
-      this.salary.value = this.employee.salary.value
+      this.salary.salary = this.employee.salary.salary
       this.employee.salary = this.salary
       console.log('ptm', this.employee)
       this.employeeService.updateEmployee(this.id, this.employee).subscribe(
@@ -63,4 +63,10 @@ export class VerMasComponent {
     verhistorialsalarios(id: number){
       this.router.navigate(['verhistorialsalarios', id]);
     }
+
+    verhistorialliquidacion(id: number){
+      this.router.navigate(['verhistorialliquidacion', id]);
+    }
+
+
 }

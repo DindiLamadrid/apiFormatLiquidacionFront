@@ -21,7 +21,7 @@
             <td>{{emp.name}}</td>
             <td>{{emp.job}}</td>
             <td>{{emp.startDate}}</td>
-            <td>{{emp.salary.value}}</td>
+            <td>{{emp.salary.salary}}</td>
             <td>{{emp.status}}</td>
             <button  [disabled]="emp.status !== 'Activo'" (click) = "updateEmployee(emp.id)" class = "btn btn-info" style="margin-left: 10px"> Edit</button>
             <button  [disabled]="emp.status !== 'Activo'" (click) = "deleteEmployee(emp.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>

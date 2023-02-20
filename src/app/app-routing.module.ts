@@ -8,6 +8,8 @@ import { LiquidacionEmployeeComponent } from './components/liquidacion-employee/
 import { CreateSalaryComponent } from './components/create-salary/create-salary.component';
 import { VerMasComponent } from './components/ver-mas/ver-mas.component';
 import { VerhistorialsalariosComponent } from './components/verhistorialsalarios/verhistorialsalarios.component';
+import { LiquidacionListComponent } from './components/liquidacion-list/liquidacion-list.component';
+
 
 
 
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path: 'createsalary/:id', component: CreateSalaryComponent},
   {path: 'vermas/:id', component: VerMasComponent},
   {path: 'verhistorialsalarios/:id', component: VerhistorialsalariosComponent},
+  {path: 'verhistorialliquidacion/:id', component: LiquidacionListComponent},
   //Redirect to employees list by default
   {path: '**', redirectTo: 'employeeslist', pathMatch: 'full'}
 

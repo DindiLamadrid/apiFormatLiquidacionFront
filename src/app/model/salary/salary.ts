@@ -1,10 +1,13 @@
 export class Salary {
   id: number;
-  value: string;
+  salary: string;
+  fechaModificacion: string
 
-  constructor(id:number, value:string){
+  constructor(id:number, salary:string, fechaModificacion: string){
     this.id = id,
-    this.value = value;
+    this.salary = salary;
+    this.fechaModificacion = fechaModificacion;
+
   }
 }
 

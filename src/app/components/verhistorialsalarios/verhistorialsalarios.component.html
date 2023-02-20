@@ -5,6 +5,7 @@
             <th>id</th>
             <th>Employee</th>
             <th>Salary</th>
+            <th>Date modified</th>
         </tr>
     </thead>
 
@@ -12,8 +13,13 @@
         <tr *ngFor = "let emp of historySalary">
             <td>{{emp.id}}</td>
             <td>{{emp.employee.name}}</td>
-            <td>{{emp.salary.value}}</td>
+            <td>{{emp.salary.salary}}</td>
+            <td>{{emp.salary.fechaModificacion}}</td>
         </tr>
     </tbody>
 </table>
+
+<div class="form-group col">
+  <button   (click) = "vermas(employee.id)" class = "form-control btn btn-success" type ="submit">Volver</button>
+</div>
 

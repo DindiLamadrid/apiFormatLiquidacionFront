@@ -1,0 +1,23 @@
+<h5> Ver liquidacion</h5>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>fechaFin</th>
+            <th>Motivo</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor = "let emp of liquidacion">
+            <td>{{emp.idEmployee}}</td>
+            <td>{{emp.fechaFin}}</td>
+            <td>{{emp.motivo}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="form-group col">
+  <button   (click) = "vermas(employee.id)" class = "form-control btn btn-success" type ="submit">Volver</button>
+</div>
+

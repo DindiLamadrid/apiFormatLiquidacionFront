@@ -16,7 +16,7 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 export class CreateSalaryComponent {
 
   employee: Employee = new Employee();
-  salary : Salary = new Salary(0, '');
+  salary : Salary = new Salary(0, '','');
   errorMessage: Httperrorresponse= new Httperrorresponse();
   id: number;
   oldSalary: string;
@@ -28,7 +28,7 @@ export class CreateSalaryComponent {
 
 
   ngOnInit(): void {
-    this.salary = new Salary(0,'');
+    this.salary = new Salary(0,'','');
     this.employee.salary = this.salary;
 
 
@@ -43,7 +43,7 @@ export class CreateSalaryComponent {
     this.employeeService.getEmployeeById(this.id).subscribe(
       emp => {
         this.employee = emp;
-        this.oldSalary = this.employee.salary.value;
+        this.oldSalary = this.employee.salary.salary;
         console.log(emp)
       },
       error => console.log(error));
@@ -66,5 +66,10 @@ export class CreateSalaryComponent {
 
   redirectEmployeeList(id: number){
     this.router.navigate(['/vermas', id]);
+  }
+
+  vermas(id: number){
+    //Lo envía a través de app-routing.module.ts
+    this.router.navigate(['vermas', id]);
   }
 }

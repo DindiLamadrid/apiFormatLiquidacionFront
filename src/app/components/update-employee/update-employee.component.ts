@@ -14,7 +14,7 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 export class UpdateEmployeeComponent implements OnInit {
 
   employee: Employee = new Employee();
-  salary: Salary = new Salary(0,'');
+  salary: Salary = new Salary(0,'','');
   id: number;
   errorMessage: Httperrorresponse= new Httperrorresponse();
 
@@ -26,7 +26,7 @@ export class UpdateEmployeeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.salary = new Salary(0,'');
+    this.salary = new Salary(0,'','');
     this.employee.salary = this.salary;
 
     const err = new Error({ status: '', message: '' });
@@ -46,7 +46,7 @@ export class UpdateEmployeeComponent implements OnInit {
   }
 
   onSubmitForm(){
-    this.salary.value = this.employee.salary.value
+    this.salary.salary = this.employee.salary.salary
     this.employee.salary = this.salary
     console.log('ptm', this.employee)
     this.employeeService.updateEmployee(this.id, this.employee).subscribe(

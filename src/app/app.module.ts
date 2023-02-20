@@ -12,6 +12,7 @@ import { LiquidacionEmployeeComponent } from './components/liquidacion-employee/
 import { CreateSalaryComponent } from './components/create-salary/create-salary.component';
 import { VerMasComponent } from './components/ver-mas/ver-mas.component';
 import { VerhistorialsalariosComponent } from './components/verhistorialsalarios/verhistorialsalarios.component';
+import { LiquidacionListComponent } from './components/liquidacion-list/liquidacion-list.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { VerhistorialsalariosComponent } from './components/verhistorialsalarios
     CreateSalaryComponent,
     VerMasComponent,
     VerhistorialsalariosComponent,
+    LiquidacionListComponent,
 
   ],
   imports: [
