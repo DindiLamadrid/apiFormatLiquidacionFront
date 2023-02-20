@@ -68,5 +68,9 @@ export class VerMasComponent {
       this.router.navigate(['verhistorialliquidacion', id]);
     }
 
+    verListEmployees(){
+      this.router.navigate(['employeeslist']);
+    }
+
 
 }
